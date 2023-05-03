@@ -1,9 +1,9 @@
 * {
     margin: 0;
     padding: 0;
-}
-
-body {
+  }
+  
+  body {
     font-family: Arial, sans-serif;
   }
   
@@ -38,10 +38,18 @@ body {
     border-bottom: 1px solid black;
     margin: 1rem;
   }
-
+  
   .container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 5rem;
   }
+  
+  .chart-container {
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    margin-top: 50px;
+  }
+  
