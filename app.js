@@ -24,3 +24,6 @@ function displayTasks() {
     taskList.appendChild(li);
   }
 }
+
+
+
