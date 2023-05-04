@@ -4,28 +4,34 @@
   <meta charset="UTF-8">
   <title>Time Planner</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Time Planner</h1>
-  </header>
-
-  <div class="container">
-    <label for="task">Task:</label>
-    <input type="text" id="task" name="task">
-    <label for="time">Time:</label>
-    <input type="time" id="time" name="time">
-    <button id="add">Add Task</button>
+  <label for="classes"><p>Mitu tundi on?</p></label>
+    <input type="number" id="classes" />
+    <br/>
+  <label for="sleeping"><p>Mitu tundi magada tahad?</p></label>
+    <input type="number" id="sleeping" />
+    <br/>
+  <label for="wash"><p>Mitu tundi pesed?</p></label>
+    <input type="number" id="wash" />
+    <br/>
+  <label for="studying"><p>Mitu tundi õpid?</p></label>
+    <input type="number" id="studying" />
+    <br/>
+  <label for="gaming"><p>Mitu tundi pelud?</p></label>
+    <input type="number" id="gaming" />
+    <br/>
+  <label for="walking"><p>Mitu tundi sa õues veedad?</p></label>
+    <input type="number" id="walking" />
+    <br/>
+    
+    <button id="submit">Submit</button>
+  <div class="chart-content">
+    <div id="piechart">
+      <canvas id="myChart"></canvas>
+    </div>
   </div>
-
-  <div>
-    <ul id="taskList"></ul>
-  </div>
-
-  <div>
-    <canvas id="chart"></canvas>
-  </div>
-
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

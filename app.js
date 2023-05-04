@@ -1,65 +1,46 @@
-const taskList = document.getElementById('taskList');
-const taskInput = document.getElementById('task');
-const timeInput = document.getElementById('time');
-const addButton = document.getElementById('add');
-const chart = document.getElementById('chart');
+const submitBtn = document.getElementById('submit');
+submitBtn.addEventListener('click', createPieChart);
 
-let tasks = [];
-
-addButton.addEventListener('click', () => {
-    const task = taskInput.value;
-    const time = timeInput.value;
-    if (task && time) {
-      tasks.push({ task, time });
-      taskInput.value = '';
-      timeInput.value = '';
-      displayTasks();
-      displayChart(tasks); // call displayChart with the updated tasks array
-    }
+function createPieChart() {
+  const classes = Number(document.getElementById('classes').value);
+  const sleeping = Number(document.getElementById('sleeping').value);
+  const wash = Number(document.getElementById('wash').value);
+  const studying = Number(document.getElementById('studying').value);
+  const gaming = Number(document.getElementById('gaming').value);
+  const walking = Number(document.getElementById('walking').value);
+  
+  const sum = classes + sleeping + wash + studying + gaming + walking;
+  
+  if (sum > 24) {
+    location.reload();
+  } else {
+    const freeTime = 24 - sum;
     
-  });
-  
-
-function displayTasks() {
-    taskList.innerHTML = '';
-    const labels = [];
-    const data = [];
-    for (const task of tasks) {
-      const li = document.createElement('li');
-      li.textContent = `${task.task} - ${task.time}`;
-      taskList.appendChild(li);
-      labels.push(task.task);
-      data.push(parseInt(task.time.split(':')[0]));
-    }
-  
-    const chart = new Chart(document.getElementById('chart'), {
-      type: 'pie',
-      data: {
-        labels: labels,
-        datasets: [{
-          label: 'Time spent on tasks',
-          data: data,
+    const data = {
+      labels: ['Tunnid', 'Magamine', 'Pesu', 'Õppimine', 'Pelumine', 'Jalutamine', 'Vaba aeg'],
+      datasets: [
+        {
+          label: 'Time Planner',
           backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
+            '#2ecc71',
+            '#3498db',
+            '#95a5a6',
+            '#9b59b6',
+            '#f1c40f',
+            '#e74c3c',
+            '#bdc3c7',
           ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true
-      }
-    });
+          data: [classes, sleeping, wash, studying, gaming, walking, freeTime],
+        },
+      ],
+    };
+
+    const config = {
+      type: 'pie',
+      data: data,
+    };
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const pieChart = new Chart(ctx, config);
   }
+}

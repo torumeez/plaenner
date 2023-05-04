@@ -1,55 +1,53 @@
 * {
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-  }
-  
-  label {
-    display: inline-block;
-    width: 60px;
-  }
-  
-  input[type="text"] {
-    width: 200px;
-    padding: 5px;
-    margin-right: 10px;
-  }
-  
-  button {
-    padding: 5px;
-  }
-  
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  li {
-    margin-bottom: 5px;
-  }
-  
-  .header-title {
-    display: flex;
-    justify-content: center;
-    border-bottom: 1px solid black;
-    margin: 1rem;
-  }
-  
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5rem;
-  }
-  
-  .chart-container {
-    width: 500px;
-    height: 500px;
-    margin: auto;
-    margin-top: 50px;
-  }
-  
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f7f5f5;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  padding: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="number"] {
+  width: 80px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+
+#piechart {
+  width: 400px;
+  height: 400px;
+  margin: 30px auto;
+}
+
+.chart-content {
+  margin-top: -13cm;
+} 
